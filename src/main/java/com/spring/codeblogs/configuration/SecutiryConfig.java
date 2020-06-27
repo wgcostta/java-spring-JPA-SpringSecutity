@@ -12,7 +12,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @EnableWebSecurity
 public class SecutiryConfig extends WebSecurityConfigurerAdapter {
-    private static final Strings[] AUTH_LIST = {
+    private static final String[] AUTH_LIST = {
             "/",
             "/posts",
             "/posts/{id}"
@@ -24,8 +24,18 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(AUTH_LIST).permitAll()
                 .anyRequest().authenticated()
                 .and().formLogin().permitAll()
-                .and.logout().logoutRequestMatcher(new AntPathMatcher("/logout"));
-
+                .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
     }
 
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+        auth.inMemoryAuthentication()
+                .withUser("wgcostta").password("{noop}123").roles("ADMIN");
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception{
+        web.ignoring().antMatchers("/bootstrap/**");
+//        web.ignoring().antMatchers("/bootstrap/**", "/style/**");
+    }
 }
