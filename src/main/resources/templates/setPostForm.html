@@ -1,1 +1,50 @@
-olaaa mundo
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>MyCodeBlog</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="style/styleCss.css"/>--></head>
+<body>
+<header>
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1" style="font-weight: bold;">MyClodeBloG</span>
+    </nav>
+</header>
+
+<section>
+    <div class="container" style="width:60%;padding-bottom: 30px;">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
+                <li class="breadcrumb-item" aria-current="page"><a href="/posts">Posts</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Novo Post</li>
+            </ol>
+        </nav>
+
+      <div>
+          <form method="post">
+              <div class="form-group">
+                  <input type="text" class="form-control" name="titulo" placeholder="Título *">
+              </div>                                                    <!--placeholder texto de fundo do Edit-->
+
+              <div class="form-group">
+                  <input type="text" class="form-control" name="autor" placeholder="Autor *">
+              </div>
+
+              <textarea type="text" class="form-control" name="texto" placeholder="Texto *"></textarea>
+
+              <small type="submit" class="btn btn-primary" style="...">Publicar</small>
+              <a href="/posts" class="btn btn-light" role="button" style="...">Cancelar</a>
+          </form>
+      </div>
+
+
+    </div>
+</section>
+
+</body>
+
+
+</html>
