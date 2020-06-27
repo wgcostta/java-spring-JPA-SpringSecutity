@@ -31,11 +31,12 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.inMemoryAuthentication()
                 .withUser("wgcostta").password("{noop}123").roles("ADMIN");
+        //bug do springSecurity precisa passar {noop}
     }
 
     @Override
     public void configure(WebSecurity web) throws Exception{
         web.ignoring().antMatchers("/bootstrap/**");
 //        web.ignoring().antMatchers("/bootstrap/**", "/style/**");
-    }
+    }//caso fosse utilizado o bootstrap importando as pastas
 }
