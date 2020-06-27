@@ -35,4 +35,17 @@ public class CodeblogController {
         return mv;
     }
 
+    @RequestMapping(value = "/newpost",method = RequestMethod.POST)
+    public ModelAndView setPostForm(@PathVariable ("id") long id){
+        ModelAndView mv = new ModelAndView("postDetails");
+//        codeblogService.save(Post post);
+//        mv.addObject("post",post);
+        return mv;
+    }
+
+    @RequestMapping(value = "/newpost",method = RequestMethod.GET)
+    public String getPostForm(){
+        return "setPostForm";
+    }
+
 }
