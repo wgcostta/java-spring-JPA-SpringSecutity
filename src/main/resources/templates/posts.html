@@ -28,11 +28,13 @@
                         <span th:text="${post.autor}"></span>
                         <span th:text="${post.data}"></span>
                     </p>
-                    <a href="#">
+                    <!--Encaminhando para a URL do Post   -->
+                    <a th:href="${(#mvc.url('CC#getPostDetails').arg(0, post.id)).build()}">
                         <h4 class="card-title" style="font-weight: bold; color: black;padding-top: 5px;">
                             <span th:text="${post.titulo}"></span>
                         </h4>
                     </a>
+
                     <p class="card-text">
                         <!--#strings.abbreviate(post.titulo,400) limitando texto em 400 caracters-->
                         <span th:utext="${#strings.abbreviate(post.texto,400)}"></span>
